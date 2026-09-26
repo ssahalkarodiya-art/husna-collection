@@ -1,0 +1,6 @@
+{
+  "name": "Husna Collection — Luxury Modest Fashion",
+  "description": "Bespoke modest fashion atelier offering timeless luxury abayas, silk hijabs, linen silhouettes, and curated coord sets crafted with organic drapes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
