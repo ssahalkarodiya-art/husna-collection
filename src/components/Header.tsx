@@ -39,7 +39,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
       <div className="w-full bg-[#2c2825] text-[#fdf9f3] px-4 sm:px-8 lg:px-16 py-1.5 flex items-center justify-between text-[11px] font-semibold tracking-widest uppercase text-center">
         <div className="hidden md:flex items-center gap-2 text-[#e6e2dc]">
           <span className="material-symbols-outlined text-sm">local_shipping</span>
-          <span>Complimentary Express Shipping on Orders Over $150</span>
+          <span>Complimentary Express Shipping on Orders Over ₹4,999</span>
         </div>
         
         <div className="w-full md:w-auto text-center flex-1 md:flex-none">
@@ -188,7 +188,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
 
             {/* Direct WhatsApp Ordering */}
             <a
-              href="https://wa.me/"
+              href="https://wa.me/917227972655?text=Hello%20Husna%20Collection%2C%20I%20would%20like%20to%20inquire%20about%20your%20modest%20fashion%20collection."
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center gap-1.5 bg-[#5c6149] hover:bg-[#171411] text-white px-3.5 py-1.5 rounded-full text-[12px] font-semibold transition-all shadow-xs"
@@ -272,13 +272,13 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
 
               <div className="flex items-center justify-between pt-1">
                 <a
-                  href="https://wa.me/"
+                  href="https://wa.me/917227972655?text=Hello%20Husna%20Collection%2C%20I%20would%20like%20to%20inquire%20about%20your%20modest%20fashion%20collection."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-[#5c6149] text-white px-4 py-2 rounded-full text-xs font-semibold"
+                  className="inline-flex items-center gap-2 bg-[#25d366] text-[#072412] px-4 py-2 rounded-full text-xs font-bold shadow-xs"
                 >
                   <span className="material-symbols-outlined text-sm">chat</span>
-                  <span>WhatsApp Stylist</span>
+                  <span>WhatsApp (+91 7227972655)</span>
                 </a>
                 <button
                   onClick={() => {

@@ -92,11 +92,11 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId,
   // WhatsApp personalized link
   const getPersonalizedWhatsAppLink = () => {
     const text = encodeURIComponent(
-      `Hello Husna Collection Stylist, I would like to order the ${product.name} in ${selectedColor}, Length ${selectedSize}, Quantity ${quantity} ($${(
+      `Hello Husna Collection Stylist, I would like to order the ${product.name} in ${selectedColor}, Length ${selectedSize}, Quantity ${quantity} (₹${(
         product.price * quantity
-      ).toFixed(2)}). Please advise on dispatch.`
+      ).toLocaleString('en-IN')}). Please advise on dispatch.`
     );
-    return `https://wa.me/?text=${text}`;
+    return `https://wa.me/917227972655?text=${text}`;
   };
 
   const handleBuyNow = () => {
@@ -238,11 +238,11 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId,
             <div className="bg-[#f7f3ed] rounded-2xl p-4 sm:p-5 shadow-xs border border-[#e6e2dc] flex flex-col gap-2">
               <div className="flex items-baseline gap-3">
                 <span className="font-serif text-2xl sm:text-3xl font-bold text-[#171411]">
-                  ${product.price.toFixed(2)}
+                  ₹{product.price.toLocaleString('en-IN')}
                 </span>
                 {product.originalPrice && (
                   <span className="text-sm text-[#7e756f] line-through">
-                    ${product.originalPrice.toFixed(2)}
+                    ₹{product.originalPrice.toLocaleString('en-IN')}
                   </span>
                 )}
                 {product.originalPrice && (
@@ -254,7 +254,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId,
               <div className="flex items-center gap-1.5 text-xs text-[#7e756f] flex-wrap">
                 <span>or 4 interest-free payments of</span>
                 <span className="font-semibold text-[#171411]">
-                  ${(product.price / 4).toFixed(2)}
+                  ₹{Math.round(product.price / 4).toLocaleString('en-IN')}
                 </span>
                 <span>with</span>
                 <span className="font-bold px-1.5 py-0.5 rounded bg-white text-[#171411] border border-[#cfc4bd]/60 text-[10px]">
@@ -362,7 +362,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId,
                   <span className="material-symbols-outlined text-[18px] transition-transform group-hover:scale-110">
                     local_mall
                   </span>
-                  <span>Add to Bag — ${(product.price * quantity).toFixed(2)}</span>
+                  <span>Add to Bag — ₹{(product.price * quantity).toLocaleString('en-IN')}</span>
                   <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">
                     arrow_forward
                   </span>
@@ -416,7 +416,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId,
               <div className="flex flex-col items-center text-center p-3 rounded-xl bg-[#f7f3ed]">
                 <span className="material-symbols-outlined text-[#5c6149] text-xl">local_shipping</span>
                 <span className="text-xs font-semibold text-[#171411] mt-1">Free Shipping</span>
-                <span className="text-[10px] text-[#7e756f]">On orders over $75</span>
+                <span className="text-[10px] text-[#7e756f]">On orders over ₹4,999</span>
               </div>
               <div className="flex flex-col items-center text-center p-3 rounded-xl bg-[#f7f3ed]">
                 <span className="material-symbols-outlined text-[#5c6149] text-xl">published_with_changes</span>
@@ -858,7 +858,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId,
                       {rel.name}
                     </h4>
                     <span className="font-serif text-xs sm:text-sm font-bold text-[#171411]">
-                      ${rel.price.toFixed(2)}
+                      ₹{rel.price.toLocaleString('en-IN')}
                     </span>
                   </div>
                   <div className="flex items-center text-[#e5a842] text-xs">

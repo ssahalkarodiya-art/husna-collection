@@ -6,7 +6,7 @@ export interface Product {
   originalPrice?: number;
   rating: number;
   reviewsCount: number;
-  category: 'abayas' | 'hijabs' | 'dresses' | 'coord-sets' | 'outerwear' | 'kimonos' | 'accessories';
+  category: 'abayas' | 'hijabs' | 'caps';
   categoryLabel: string;
   fabric: string;
   images: {

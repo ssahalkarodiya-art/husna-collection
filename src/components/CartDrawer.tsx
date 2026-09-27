@@ -68,7 +68,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                   </span>
                 ) : (
                   <span>
-                    Add <strong className="text-[#4b1906] font-bold">${freeShippingProgress.needed.toFixed(2)}</strong> more for Free Shipping
+                    Add <strong className="text-[#4b1906] font-bold">₹{freeShippingProgress.needed.toLocaleString('en-IN')}</strong> more for Free Shipping
                   </span>
                 )}
               </span>
@@ -91,7 +91,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 </span>
                 <p className="font-serif text-lg text-[#171411] mb-1">Your bag is empty</p>
                 <p className="text-xs text-[#7e756f] max-w-xs mb-6">
-                  Discover our modest couture abayas and silk hijabs curated for timeless elegance.
+                  Discover our modest couture abayas, hijabs, and caps curated for timeless elegance.
                 </p>
                 <button
                   onClick={() => {
@@ -150,7 +150,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
 
                       <div className="text-right">
                         <span className="font-serif text-sm font-semibold text-[#171411]">
-                          ${(item.price * item.quantity).toFixed(2)}
+                          ₹{(item.price * item.quantity).toLocaleString('en-IN')}
                         </span>
                         <button
                           onClick={() => removeFromCart(item.id)}
@@ -172,23 +172,23 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
               <div className="flex flex-col gap-1.5 text-xs text-[#7e756f]">
                 <div className="flex justify-between">
                   <span>Subtotal</span>
-                  <span className="font-semibold text-[#171411]">${subtotal.toFixed(2)}</span>
+                  <span className="font-semibold text-[#171411]">₹{subtotal.toLocaleString('en-IN')}</span>
                 </div>
                 {isPromoApplied && (
                   <div className="flex justify-between text-[#5c6149]">
                     <span>Promotional Saving ({BRAND_INFO.promoCode})</span>
-                    <span className="font-semibold">−${discountAmount.toFixed(2)}</span>
+                    <span className="font-semibold">−₹{discountAmount.toLocaleString('en-IN')}</span>
                   </div>
                 )}
                 <div className="flex justify-between">
                   <span>Shipping</span>
                   <span className="font-semibold text-[#171411]">
-                    {shippingFee === 0 ? 'FREE' : `$${shippingFee.toFixed(2)}`}
+                    {shippingFee === 0 ? 'FREE' : `₹${shippingFee.toLocaleString('en-IN')}`}
                   </span>
                 </div>
                 <div className="flex justify-between text-sm font-semibold text-[#171411] pt-1 border-t border-[#e6e2dc]">
                   <span>Estimated Total</span>
-                  <span className="font-serif text-base">${total.toFixed(2)}</span>
+                  <span className="font-serif text-base">₹{total.toLocaleString('en-IN')}</span>
                 </div>
               </div>
 

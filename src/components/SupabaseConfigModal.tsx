@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS public.products (
   original_price NUMERIC(10, 2),
   rating NUMERIC(3, 2) DEFAULT 5.0,
   reviews_count INTEGER DEFAULT 0,
-  category TEXT NOT NULL,
+  category TEXT NOT NULL CHECK (category IN ('abayas', 'hijabs', 'caps')),
   category_label TEXT NOT NULL,
   fabric TEXT NOT NULL,
   badge TEXT,

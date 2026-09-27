@@ -23,7 +23,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ onSelectProduct }) => 
     );
   });
 
-  const popularSearches = ['Black Abaya', 'Silk Hijab', 'Linen Co-ord', 'Eid Edition', 'Oud Spray', 'Magnetic Clasps'];
+  const popularSearches = ['Black Abaya', 'Silk Chiffon Hijab', 'Bamboo Bonnet Cap', 'Cashmere Beret', 'Linen Abaya', 'Turban Cap'];
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-[#171411]/60 backdrop-blur-xs flex items-start justify-center pt-16 sm:pt-24 px-4">
@@ -37,7 +37,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ onSelectProduct }) => 
             autoFocus
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search abayas, hijabs, linen coord sets, fabrics..."
+            placeholder="Search abayas, hijabs, modest caps, fabrics..."
             className="flex-1 bg-transparent text-sm text-[#171411] placeholder:text-[#7e756f] focus:outline-none"
           />
           {query && (
@@ -77,7 +77,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ onSelectProduct }) => 
           {filteredProducts.length === 0 ? (
             <div className="text-center py-12 text-[#7e756f]">
               <p className="font-serif text-sm text-[#171411]">No creations found</p>
-              <p className="text-xs mt-1">Try searching for "Abaya", "Silk", or "Linen"</p>
+              <p className="text-xs mt-1">Try searching for "Abaya", "Hijab", or "Cap"</p>
             </div>
           ) : (
             filteredProducts.map((p) => (
@@ -108,7 +108,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ onSelectProduct }) => 
                 </div>
                 <div className="text-right">
                   <span className="font-serif text-sm font-semibold text-[#171411]">
-                    ${p.price.toFixed(2)}
+                    ₹{p.price.toLocaleString('en-IN')}
                   </span>
                   <span className="material-symbols-outlined text-sm text-[#5c6149] block">
                     arrow_forward

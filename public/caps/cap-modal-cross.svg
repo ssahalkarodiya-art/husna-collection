@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bg2" cx="50%" cy="40%" r="75%">
+      <stop offset="0%" stop-color="#FCFAF6"/>
+      <stop offset="50%" stop-color="#F2EBE1"/>
+      <stop offset="100%" stop-color="#E2D6C5"/>
+    </radialGradient>
+    <linearGradient id="modalBeige" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EFE6DA"/>
+      <stop offset="40%" stop-color="#DECBB8"/>
+      <stop offset="80%" stop-color="#C7B29A"/>
+      <stop offset="100%" stop-color="#B8A288"/>
+    </linearGradient>
+    <linearGradient id="modalBeigeDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#CBB59E"/>
+      <stop offset="100%" stop-color="#A89077"/>
+    </linearGradient>
+    <filter id="shadow2" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#554433" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="800" fill="url(#bg2)"/>
+
+  <!-- Mannequin Stature Silhouette -->
+  <path d="M 220 540 C 220 480, 240 450, 300 450 C 360 450, 380 480, 380 540 L 450 780 L 150 780 Z" fill="#D9CCBC" opacity="0.45"/>
+  <ellipse cx="300" cy="380" rx="95" ry="125" fill="#E6D7C5" opacity="0.75"/>
+
+  <!-- Pleated Cross-Front Turban Cap -->
+  <g filter="url(#shadow2)">
+    <!-- Back Crown -->
+    <path d="M 180 340 C 165 210, 235 140, 300 140 C 365 140, 435 210, 420 340 C 415 390, 400 440, 370 470 C 340 495, 260 495, 230 470 C 200 440, 185 390, 180 340 Z" fill="url(#modalBeigeDark)"/>
+
+    <!-- Left Wing of Cross Fold -->
+    <path d="M 185 320 C 190 240, 270 200, 320 280 C 360 350, 240 460, 205 450 C 185 410, 180 360, 185 320 Z" fill="url(#modalBeige)"/>
+    
+    <!-- Right Wing Crossing Over Left -->
+    <path d="M 415 320 C 410 240, 330 200, 280 280 C 240 350, 360 460, 395 450 C 415 410, 420 360, 415 320 Z" fill="url(#modalBeige)"/>
+
+    <!-- Prominent Cross Intersection at Front -->
+    <path d="M 260 340 Q 300 370 340 340 Q 300 410 260 340 Z" fill="url(#modalBeigeDark)" opacity="0.7"/>
+
+    <!-- Gentle Pleats Detail Lines -->
+    <path d="M 230 290 Q 280 330 330 300" stroke="#998068" stroke-width="2.5" fill="none" opacity="0.6"/>
+    <path d="M 240 260 Q 290 300 340 270" stroke="#998068" stroke-width="2" fill="none" opacity="0.5"/>
+    <path d="M 220 370 Q 280 410 350 380" stroke="#998068" stroke-width="2.5" fill="none" opacity="0.6"/>
+    <path d="M 225 430 Q 300 460 375 430" stroke="#998068" stroke-width="3" fill="none" opacity="0.7"/>
+  </g>
+
+  <!-- Title Pill Overlay -->
+  <g transform="translate(300, 720)">
+    <rect x="-180" y="-22" width="360" height="44" rx="22" fill="#FFFFFF" opacity="0.9" filter="url(#shadow2)"/>
+    <text x="0" y="4" text-anchor="middle" font-family="serif" font-size="14" font-weight="600" fill="#171411" letter-spacing="1">
+      PLEATED CROSS-FRONT MODAL CAP
+    </text>
+    <text x="0" y="24" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="500" fill="#5C6149" letter-spacing="2">
+      WARM BEIGE • ARCHITECTURAL DRAPE
+    </text>
+  </g>
+</svg>

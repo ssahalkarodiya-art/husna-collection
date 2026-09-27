@@ -62,30 +62,30 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-// Initial default cart matching Image 1.png Stitch design
+// Initial default cart matching Atelier modest catalog in Indian Rupees
 const INITIAL_CART: CartItem[] = [
   {
     id: 'classic-black-abaya-Deep Onyx-56',
     productId: 'classic-black-abaya',
-    name: 'Classic Black Abaya',
+    name: 'Classic Black Nidha Abaya',
     subtitle: 'Signature Korean Nida • Tailored Drape',
-    price: 85.00,
-    originalPrice: 110.00,
+    price: 6499,
+    originalPrice: 7999,
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD21CgfOWX_ZE8kTJa0S6Jf76Wv3M-HCIzvIbYgUVTOkjr8wCIetR_1jE0iJ9p1ZbhK9VSxD9VTq7I52iy6OBYJCPOnOlnixW1_kLbHmQvWWxJY3GwQveoP3qwvFvq2GWFRvobwp3A3ARoYAbMzBpFPgDxXD9_peV9EPZ1S9DC0HTQqjSPxlPLpfcdfe1d2Y6-ZkvNJh7bUJMahMYth89ukYCr3U1DXO2JoM8dv1QUQYB9uNyKh5Xtv',
     color: 'Deep Onyx',
     size: '56',
     quantity: 1,
   },
   {
-    id: 'modest-co-ord-set-Warm Taupe-M (Length 56)',
-    productId: 'modest-co-ord-set',
-    name: 'Modest Co-ord Set',
-    subtitle: 'Breathable Textured Slub • Fluid Hem',
-    price: 72.00,
-    originalPrice: 95.00,
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuACyZLwOfa_-Dmrl634JC5CmWIpvLOVdW0dgO0GVseMYgD0LeFk877zCbe304lIIBJmdUz8agahVYroloNA0WfMYWzVejWbKiDVb6F_XE-U8IjCxLce2L1Yj_CqhHGxtIf2QUMOmOAlFqLySa_UTsbG9TOfsLMu_qWmvN1r6ALIddwbJHkrX5ipkwrUZuU0ZM4qysgmuLGJLOoCG3-IrtUDounbVCkJVgFYcWlE2DDTn5k8XgLefSKJ',
-    color: 'Warm Taupe',
-    size: 'M (Length 56)',
+    id: 'atelier-silk-bonnet-cap-Deep Black-Atelier Standard (M/L)',
+    productId: 'atelier-silk-bonnet-cap',
+    name: 'Atelier Silk-Lined Bamboo Bonnet Cap',
+    subtitle: 'Pure Mulberry Silk Lining • Non-Slip Contour',
+    price: 1299,
+    originalPrice: 1699,
+    image: '/caps/cap-silk-bonnet.svg',
+    color: 'Deep Black',
+    size: 'Atelier Standard (M/L)',
     quantity: 1,
   },
 ];
@@ -276,25 +276,25 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     isUnlocked: isFreeShippingUnlocked,
   };
 
-  const hasUnlockedFreeHijab = subtotal >= 100;
+  const hasUnlockedFreeHijab = subtotal >= 6999;
 
   const getWhatsAppCartLink = () => {
     if (cart.length === 0) {
-      return `https://wa.me/?text=${encodeURIComponent(
+      return `https://wa.me/917227972655?text=${encodeURIComponent(
         'Hello Husna Collection Concierge, I would like personal styling assistance with your modest collection.'
       )}`;
     }
     const itemsSummary = cart
       .map(
-        (item) => `• ${item.name} (${item.color}, Size ${item.size}) x${item.quantity} = $${(item.price * item.quantity).toFixed(2)}`
+        (item) => `• ${item.name} (${item.color}, Size ${item.size}) x${item.quantity} = ₹${(item.price * item.quantity).toLocaleString('en-IN')}`
       )
       .join('\n');
     
-    const message = `Assalamu Alaikum / Hello Husna Collection Stylist,\n\nI would like to order my shopping bag items:\n${itemsSummary}\n\nEstimated Subtotal: $${subtotal.toFixed(2)}${
-      isPromoApplied ? `\nPromo (HUSNA20): -$${discountAmount.toFixed(2)}` : ''
-    }\nShipping: ${shippingFee === 0 ? 'FREE' : `$${shippingFee.toFixed(2)}`}\nEstimated Total: $${total.toFixed(2)}\n\nPlease assist me with size confirmation and direct VIP checkout.`;
+    const message = `Assalamu Alaikum / Hello Husna Collection Stylist,\n\nI would like to order my shopping bag items:\n${itemsSummary}\n\nEstimated Subtotal: ₹${subtotal.toLocaleString('en-IN')}${
+      isPromoApplied ? `\nPromo (HUSNA20): -₹${discountAmount.toLocaleString('en-IN')}` : ''
+    }\nShipping: ${shippingFee === 0 ? 'FREE' : `₹${shippingFee.toLocaleString('en-IN')}`}\nEstimated Total: ₹${total.toLocaleString('en-IN')}\n\nPlease assist me with size confirmation and direct VIP checkout.`;
 
-    return `https://wa.me/?text=${encodeURIComponent(message)}`;
+    return `https://wa.me/917227972655?text=${encodeURIComponent(message)}`;
   };
 
   return (

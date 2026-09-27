@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bg3" cx="50%" cy="40%" r="75%">
+      <stop offset="0%" stop-color="#FAF6F4"/>
+      <stop offset="50%" stop-color="#EFE5E0"/>
+      <stop offset="100%" stop-color="#DFCAC2"/>
+    </radialGradient>
+    <linearGradient id="maroonKnit" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6E1E2D"/>
+      <stop offset="35%" stop-color="#551421"/>
+      <stop offset="70%" stop-color="#3D0B16"/>
+      <stop offset="100%" stop-color="#24050D"/>
+    </linearGradient>
+    <linearGradient id="maroonHighlight" x1="10%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%" stop-color="#9C3449" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="gold3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E6C875"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#996515"/>
+    </linearGradient>
+    <filter id="shadow3" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#3D0B16" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="800" fill="url(#bg3)"/>
+
+  <!-- Mannequin Stature Silhouette -->
+  <path d="M 220 540 C 220 480, 240 450, 300 450 C 360 450, 380 480, 380 540 L 450 780 L 150 780 Z" fill="#D3C1BA" opacity="0.45"/>
+  <ellipse cx="300" cy="380" rx="95" ry="125" fill="#DCDBD6" opacity="0.75"/>
+
+  <!-- Cashmere Beret Cap Body with asymmetric modest slouch -->
+  <g filter="url(#shadow3)">
+    <!-- Slouch Crown Disk -->
+    <path d="M 140 270 C 130 160, 240 120, 340 120 C 450 120, 480 180, 470 260 C 460 330, 420 370, 380 380 C 320 395, 230 380, 170 340 C 145 320, 142 295, 140 270 Z" fill="url(#maroonKnit)"/>
+
+    <!-- Subtle Knit Highlight -->
+    <path d="M 170 250 C 180 170, 260 140, 350 145 C 410 150, 440 190, 420 250 C 360 210, 240 200, 170 250 Z" fill="url(#maroonHighlight)"/>
+
+    <!-- Fitted Modest Ribbed Band around Head -->
+    <path d="M 210 370 C 250 395, 340 395, 375 370 C 385 390, 375 420, 350 435 C 310 450, 270 450, 235 435 C 215 420, 205 390, 210 370 Z" fill="#3D0B16" stroke="#551421" stroke-width="1.5"/>
+
+    <!-- Beret Stem / Tab Accent -->
+    <path d="M 335 125 C 335 110, 342 105, 345 105 C 347 105, 347 115, 345 125 Z" fill="#551421"/>
+
+    <!-- Soft fold lines -->
+    <path d="M 180 300 Q 280 340 380 310" stroke="#7A2234" stroke-width="2.5" fill="none" opacity="0.6"/>
+    <path d="M 220 260 Q 320 290 420 250" stroke="#7A2234" stroke-width="2" fill="none" opacity="0.4"/>
+  </g>
+
+  <!-- Gold Emblem Pin -->
+  <g transform="translate(360, 385)">
+    <circle cx="10" cy="10" r="9" fill="url(#gold3)"/>
+    <circle cx="10" cy="10" r="7" fill="#3D0B16"/>
+    <circle cx="10" cy="10" r="5" fill="url(#gold3)"/>
+  </g>
+
+  <!-- Title Pill Overlay -->
+  <g transform="translate(300, 720)">
+    <rect x="-180" y="-22" width="360" height="44" rx="22" fill="#FFFFFF" opacity="0.9" filter="url(#shadow3)"/>
+    <text x="0" y="4" text-anchor="middle" font-family="serif" font-size="14" font-weight="600" fill="#171411" letter-spacing="1">
+      HERITAGE CASHMERE BERET CAP
+    </text>
+    <text x="0" y="24" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="500" fill="#6E1E2D" letter-spacing="2">
+      MAROON WINE • BESPOKE KNIT
+    </text>
+  </g>
+</svg>

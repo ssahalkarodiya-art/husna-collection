@@ -128,10 +128,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <button
-                  onClick={() => handleLink('shop', 'accessories')}
+                  onClick={() => handleLink('shop', 'caps')}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  Modest Essentials
+                  Modest Caps & Bonnets
                 </button>
               </li>
               <li>
@@ -194,34 +194,58 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </ul>
           </div>
 
-          {/* Concierge & Newsletter */}
+          {/* Concierge & Contact Us */}
           <div className="flex flex-col gap-3">
             <span className="font-serif text-[18px] text-white tracking-wide font-medium">
-              Concierge
+              Contact Us
             </span>
-            <div className="flex flex-col gap-2 text-[12px] text-[#e6e2dc]/80">
-              <p className="flex items-start gap-2">
+            <div className="flex flex-col gap-2.5 text-[12px] text-[#e6e2dc]/85">
+              <div className="flex items-start gap-2">
                 <span className="material-symbols-outlined text-[16px] text-[#c4c9ac] shrink-0 mt-0.5">
-                  location_on
+                  storefront
                 </span>
-                <span>Atelier Husna, 5th Avenue Couture District, Dubai & London</span>
-              </p>
+                <div className="flex flex-col leading-snug">
+                  <span className="text-white font-medium">Husna Collection</span>
+                  <span className="text-[#cfc4bd]">Shop G-14, G-15, Jasat Plaza, Opp. I.T.I.</span>
+                  <span className="text-[#cfc4bd]">Station Road, Ankleshwar – 393001</span>
+                  <span className="text-[#cfc4bd]">Gujarat, India</span>
+                </div>
+              </div>
+
               <p className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-[16px] text-[#c4c9ac] shrink-0">
                   mail
                 </span>
-                <a href={`mailto:${BRAND_INFO.email}`} className="hover:text-white transition-colors">
+                <a
+                  href={`mailto:${BRAND_INFO.email}`}
+                  className="hover:text-white transition-colors underline-offset-2 hover:underline"
+                >
                   {BRAND_INFO.email}
                 </a>
               </p>
+
               <p className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-[16px] text-[#c4c9ac] shrink-0">
                   call
                 </span>
-                <a href="tel:+97148209000" className="hover:text-white transition-colors">
-                  {BRAND_INFO.phone}
+                <a
+                  href="tel:+917227972655"
+                  className="hover:text-white transition-colors"
+                >
+                  Phone/WhatsApp: {BRAND_INFO.phone}
                 </a>
               </p>
+
+              {/* Direct WhatsApp Concierge Button */}
+              <a
+                href="https://wa.me/917227972655?text=Hello%20Husna%20Collection%2C%20I%20would%20like%20to%20connect%20with%20your%20team."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 inline-flex items-center justify-center gap-2 px-3.5 py-2 rounded-full bg-[#25d366] hover:bg-[#20ba5a] text-[#0b2816] text-[12px] font-semibold transition-all shadow-xs"
+              >
+                <span className="material-symbols-outlined text-[16px]">chat</span>
+                <span>Chat on WhatsApp</span>
+              </a>
             </div>
 
             {/* Newsletter Atelier */}

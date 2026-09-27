@@ -135,7 +135,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
                 Personal Atelier Concierge
               </h3>
               <p className="text-xs text-[#4d4540] leading-relaxed">
-                Every client has direct access to our Dubai & London stylists via WhatsApp for bespoke sleeve shortening, abaya hem alterations, and personalized styling advice.
+                Every client has direct access to our Mumbai & Dubai stylists via WhatsApp for bespoke sleeve shortening, abaya hem alterations, and personalized styling advice.
               </p>
             </div>
           </div>
@@ -179,7 +179,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
               </div>
 
               <a
-                href={`https://wa.me/?text=Hello%20Husna%20Collection%2C%20I%20would%20like%20to%20book%20a%20private%20atelier%20appointment%20in%20${atelier.city}.`}
+                href={`https://wa.me/917227972655?text=Hello%20Husna%20Collection%2C%20I%20would%20like%20to%20book%20a%20private%20atelier%20appointment%20in%20${atelier.city}.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full bg-[#171411] hover:bg-[#2c2825] text-white py-2.5 rounded-full text-xs font-semibold text-center transition-colors shadow-xs"

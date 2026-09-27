@@ -43,6 +43,15 @@ export const CollectionsPage: React.FC<CollectionsPageProps> = ({ onNavigate }) 
       category: 'hijabs',
       itemsCount: '24 Shades',
     },
+    {
+      id: 'atelier-caps-studio',
+      title: 'The Atelier Modest Cap & Bonnet Studio',
+      subtitle: 'Pure Mulberry Silk Linings, Mongolian Cashmere & Cross-Front Turbans',
+      description: 'Engineered for women seeking healthy hair protection, non-slip dignity, and headache-free wear. Featuring grade-6A silk linings, fine-gauge cashmere berets, and micro-modal drapes across black, beige, brown, grey, maroon, and pastel blush.',
+      image: '/caps/cap-silk-bonnet.svg',
+      category: 'caps',
+      itemsCount: '6 Atelier Styles',
+    },
   ];
 
   return (
@@ -109,7 +118,7 @@ export const CollectionsPage: React.FC<CollectionsPageProps> = ({ onNavigate }) 
                   </button>
 
                   <a
-                    href={`https://wa.me/?text=Hello%20Husna%20Collection%2C%20I%20would%20like%20to%20inquire%20about%20the%20${encodeURIComponent(
+                    href={`https://wa.me/917227972655?text=Hello%20Husna%20Collection%2C%20I%20would%20like%20to%20inquire%20about%20the%20${encodeURIComponent(
                       col.title
                     )}.`}
                     target="_blank"

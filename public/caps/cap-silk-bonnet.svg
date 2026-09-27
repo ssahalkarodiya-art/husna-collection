@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="75%">
+      <stop offset="0%" stop-color="#FDFBF7"/>
+      <stop offset="50%" stop-color="#F5EFE6"/>
+      <stop offset="100%" stop-color="#E8DFD3"/>
+    </radialGradient>
+    <linearGradient id="silkBlack" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#2D2A26"/>
+      <stop offset="35%" stop-color="#1A1816"/>
+      <stop offset="70%" stop-color="#0E0D0C"/>
+      <stop offset="100%" stop-color="#1B1917"/>
+    </linearGradient>
+    <linearGradient id="silkSheen" x1="0%" y1="0%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.15"/>
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.0"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.08"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="50%" stop-color="#F3E5AB"/>
+      <stop offset="100%" stop-color="#996515"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#171411" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="800" fill="url(#bg)"/>
+
+  <!-- Mannequin Stature Silhouette -->
+  <path d="M 220 540 C 220 480, 240 450, 300 450 C 360 450, 380 480, 380 540 L 450 780 L 150 780 Z" fill="#E2D8CC" opacity="0.45"/>
+  <ellipse cx="300" cy="380" rx="95" ry="125" fill="#EADFCE" opacity="0.75"/>
+  
+  <!-- Bonnet Cap Main Body with shadow -->
+  <g filter="url(#shadow)">
+    <!-- Silk-Lined Bonnet Crown -->
+    <path d="M 175 340 C 160 210, 230 140, 300 140 C 370 140, 440 210, 425 340 C 420 405, 410 440, 395 460 C 370 495, 335 500, 300 500 C 265 500, 230 495, 205 460 C 190 440, 180 405, 175 340 Z" fill="url(#silkBlack)"/>
+    
+    <!-- Sheen overlay -->
+    <path d="M 185 320 C 175 220, 235 155, 300 155 C 345 155, 395 190, 412 280 C 360 230, 260 220, 185 320 Z" fill="url(#silkSheen)"/>
+    
+    <!-- Tailored Folds & Pleats -->
+    <path d="M 205 450 C 240 475, 360 475, 395 450" stroke="#3D3833" stroke-width="3" fill="none" opacity="0.6"/>
+    <path d="M 215 420 C 255 440, 345 440, 385 420" stroke="#3D3833" stroke-width="2.5" fill="none" opacity="0.4"/>
+    <path d="M 230 380 C 265 395, 335 395, 370 380" stroke="#3D3833" stroke-width="2" fill="none" opacity="0.3"/>
+    
+    <!-- Fitted Comfort Elastic Band -->
+    <path d="M 200 455 C 235 480, 365 480, 400 455 C 404 468, 390 485, 370 492 C 330 505, 270 505, 230 492 C 210 485, 196 468, 200 455 Z" fill="#151413" stroke="#333" stroke-width="1"/>
+  </g>
+
+  <!-- Gold Atelier Emblem Tag -->
+  <g transform="translate(378, 435)">
+    <circle cx="12" cy="12" r="10" fill="url(#gold)"/>
+    <circle cx="12" cy="12" r="8" fill="#171411"/>
+    <circle cx="12" cy="12" r="6" fill="url(#gold)"/>
+    <path d="M 10 9 L 14 9 M 12 9 L 12 15 M 10 15 L 14 15" stroke="#171411" stroke-width="1.2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Title Pill Overlay -->
+  <g transform="translate(300, 720)">
+    <rect x="-180" y="-22" width="360" height="44" rx="22" fill="#FFFFFF" opacity="0.9" filter="url(#shadow)"/>
+    <text x="0" y="4" text-anchor="middle" font-family="serif" font-size="14" font-weight="600" fill="#171411" letter-spacing="1">
+      ATELIER SILK-LINED BONNET CAP
+    </text>
+    <text x="0" y="24" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="500" fill="#757C60" letter-spacing="2">
+      HAUTE MODESTY • ZERO FRIZZ
+    </text>
+  </g>
+</svg>

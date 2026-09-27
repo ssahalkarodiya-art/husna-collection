@@ -43,4 +43,18 @@ export const ARTICLES: Article[] = [
       'Hang to dry on a wide contoured wooden hanger in a shaded airy space. When ironing, steam while the garment is still 10% damp for an effortless crisp atelier finish.',
     ],
   },
+  {
+    id: 'modest-cap-silk-bonnet-hair-care',
+    title: 'The Modest Cap & Silk Bonnet Guide: Protecting Hair Health Under Hijabs',
+    excerpt: 'Why pure mulberry silk linings and ergonomic bamboo caps are essential for preventing hair friction, edge breakage, and tension marks.',
+    readTime: '4 min read',
+    category: 'Hair & Modesty',
+    date: 'March 24, 2026',
+    image: '/caps/cap-silk-bonnet.svg',
+    content: [
+      'Frequent friction between textured hair strands and rough fabrics can cause dryness, hair thinning, and edge breakage over time. Our Atelier bonnet caps incorporate 100% grade-6A pure mulberry silk linings that reduce friction by 85%.',
+      'For daily comfort without headache-inducing pressure, cross-front modal caps and contoured ribbed tie-back designs eliminate tight elastic bands across the forehead.',
+      'Pair neutral black, beige, or slate grey caps with everyday hijabs, or select rich maroon and mocha velvet caps for special evening celebrations.',
+    ],
+  },
 ];

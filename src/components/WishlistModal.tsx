@@ -48,7 +48,7 @@ export const WishlistModal: React.FC<WishlistModalProps> = ({ onSelectProduct })
                 </span>
                 <p className="font-serif text-lg text-[#171411] mb-1">No saved pieces yet</p>
                 <p className="text-xs text-[#7e756f] max-w-xs mb-6">
-                  Save your favorite abayas, co-ord sets, and silk hijabs for easy access anytime.
+                  Save your favorite abayas, hijabs, and modest caps for easy access anytime.
                 </p>
               </div>
             ) : (
@@ -77,7 +77,7 @@ export const WishlistModal: React.FC<WishlistModalProps> = ({ onSelectProduct })
                       </h4>
                       <p className="text-[11px] text-[#7e756f] mt-0.5">{p.fabric}</p>
                       <span className="font-serif text-sm font-semibold text-[#171411] block mt-1">
-                        ${p.price.toFixed(2)}
+                        ₹{p.price.toLocaleString('en-IN')}
                       </span>
                     </div>
 

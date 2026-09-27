@@ -38,25 +38,25 @@ export const CartPage: React.FC<CartPageProps> = ({ onNavigate }) => {
     }
   };
 
-  // Addon products matching Image 1.png
+  // Addon products strictly from Abayas, Hijabs, and Caps
   const addonItems = [
     {
-      product: PRODUCTS.find((p) => p.id === 'inner-slip-dress')!,
-      badge: 'Essential Layer',
-      ratingCount: 84,
-      desc: 'Opaque, breathable bamboo viscose anti-static lining dress.',
+      product: PRODUCTS.find((p) => p.id === 'atelier-silk-bonnet-cap')!,
+      badge: 'Atelier Essential',
+      ratingCount: 88,
+      desc: '100% Pure Mulberry Silk Lined Bamboo Bonnet for zero frizz and hair protection.',
     },
     {
-      product: PRODUCTS.find((p) => p.id === 'magnetic-gold-clasps')!,
-      badge: 'Snag-Free',
-      ratingCount: 142,
-      desc: '4–Piece 18k brushed gold snag-free neodymium magnetic pins.',
+      product: PRODUCTS.find((p) => p.id === 'silk-chiffon-hijab-cream')!,
+      badge: 'Matching Drape',
+      ratingCount: 210,
+      desc: 'Featherlight non-slip Mulberry silk & chiffon hijab in desert sand tone.',
     },
     {
-      product: PRODUCTS.find((p) => p.id === 'silk-refresher-spray')!,
-      badge: 'Organic Oud',
-      ratingCount: 39,
-      desc: 'Delicate organic rosewater & white oud fabric freshener (100ml).',
+      product: PRODUCTS.find((p) => p.id === 'pleated-cross-front-modal-cap')!,
+      badge: 'Trending',
+      ratingCount: 76,
+      desc: 'Architectural cross-front drape modal cap in versatile warm beige sand.',
     },
   ].filter((item) => item.product !== undefined);
 
@@ -103,17 +103,17 @@ export const CartPage: React.FC<CartPageProps> = ({ onNavigate }) => {
                 <span>
                   {freeShippingProgress.isUnlocked ? (
                     <strong className="text-[#5c6149]">
-                      Congratulations! You unlocked Free Express Global Shipping!
+                      Congratulations! You unlocked Free Express Shipping!
                     </strong>
                   ) : (
                     <>
-                      Add only <strong className="text-[#4b1906] font-bold">${freeShippingProgress.needed.toFixed(2)}</strong> more to unlock <strong className="text-[#171411]">Free Express Global Shipping</strong>!
+                      Add only <strong className="text-[#4b1906] font-bold">₹{freeShippingProgress.needed.toLocaleString('en-IN')}</strong> more to unlock <strong className="text-[#171411]">Free Express Shipping</strong>!
                     </>
                   )}
                 </span>
               </p>
               <span className="text-xs font-semibold text-[#5c6149]">
-                {freeShippingProgress.percent}% Completed (${subtotal.toFixed(0)} / ${BRAND_INFO.freeShippingThreshold})
+                {freeShippingProgress.percent}% Completed (₹{subtotal.toLocaleString('en-IN')} / ₹{BRAND_INFO.freeShippingThreshold.toLocaleString('en-IN')})
               </span>
             </div>
 
@@ -125,11 +125,11 @@ export const CartPage: React.FC<CartPageProps> = ({ onNavigate }) => {
             </div>
 
             <div className="flex items-center justify-between text-[11px] text-[#7e756f] mt-2">
-              <span>{hasUnlockedFreeHijab ? 'Complimentary Hijab Unlocked ✓' : 'Add $100 for Free Gift Hijab'}</span>
+              <span>{hasUnlockedFreeHijab ? 'Complimentary Hijab Unlocked ✓' : 'Add ₹6,999 for Free Gift Hijab'}</span>
               <span>
                 {freeShippingProgress.isUnlocked
                   ? 'Zero Shipping Fee Applied'
-                  : `$${freeShippingProgress.needed.toFixed(2)} away from Zero Shipping Fee`}
+                  : `₹${freeShippingProgress.needed.toLocaleString('en-IN')} away from Zero Shipping Fee`}
               </span>
             </div>
           </div>
@@ -246,7 +246,7 @@ export const CartPage: React.FC<CartPageProps> = ({ onNavigate }) => {
 
                       <div className="sm:text-right w-full sm:w-auto flex sm:flex-col justify-between items-center sm:items-end pt-2 sm:pt-0">
                         <span className="font-serif text-lg font-bold text-[#171411]">
-                          ${(item.price * item.quantity).toFixed(2)}
+                          ₹{(item.price * item.quantity).toLocaleString('en-IN')}
                         </span>
                         <span className="text-[11px] text-[#5c6149] font-medium">In Stock • Ships Today</span>
                       </div>
@@ -282,14 +282,14 @@ export const CartPage: React.FC<CartPageProps> = ({ onNavigate }) => {
                         </h4>
                         <p className="text-xs text-[#60654d]">180 × 70cm • Desert Sand</p>
                         <p className="text-[11px] text-[#5c6149] font-medium mt-0.5">
-                          Unlocked automatically for qualifying orders over $100
+                          Unlocked automatically for qualifying orders over ₹6,999
                         </p>
                       </div>
                     </div>
 
                     <div className="sm:text-right w-full sm:w-auto flex sm:flex-col justify-between items-center sm:items-end">
                       <div className="flex items-baseline gap-1.5">
-                        <span className="line-through text-[#7e756f] text-xs">$18.00</span>
+                        <span className="line-through text-[#7e756f] text-xs">₹1,499</span>
                         <span className="font-serif text-sm font-bold text-[#5c6149]">FREE</span>
                       </div>
                       <span className="text-[10px] bg-[#dee3c4] text-[#191d0a] px-2 py-0.5 rounded-full font-bold uppercase mt-1">
@@ -418,7 +418,7 @@ export const CartPage: React.FC<CartPageProps> = ({ onNavigate }) => {
               <div className="flex flex-col gap-2.5 text-xs text-[#4d4540] pt-1">
                 <div className="flex justify-between items-center">
                   <span>Cart Subtotal ({cart.reduce((a, c) => a + c.quantity, 0)} items)</span>
-                  <span className="font-semibold text-[#171411]">${subtotal.toFixed(2)}</span>
+                  <span className="font-semibold text-[#171411]">₹{subtotal.toLocaleString('en-IN')}</span>
                 </div>
 
                 {hasUnlockedFreeHijab && (
@@ -427,26 +427,26 @@ export const CartPage: React.FC<CartPageProps> = ({ onNavigate }) => {
                       <span className="material-symbols-outlined text-sm">stars</span>
                       <span>Complimentary Chiffon Hijab</span>
                     </span>
-                    <span className="font-bold uppercase text-[11px] tracking-wider">FREE ($18.00)</span>
+                    <span className="font-bold uppercase text-[11px] tracking-wider">FREE (₹1,499)</span>
                   </div>
                 )}
 
                 <div className="flex justify-between items-center">
                   <span className="flex items-center gap-1">
                     <span>Shipping Fee</span>
-                    <span className="material-symbols-outlined text-[14px] text-[#7e756f]" title="Free shipping over $150">
+                    <span className="material-symbols-outlined text-[14px] text-[#7e756f]" title="Free shipping over ₹4,999">
                       help
                     </span>
                   </span>
                   <span className="font-semibold text-[#171411]">
-                    {shippingFee === 0 ? 'FREE' : `$${shippingFee.toFixed(2)}`}
+                    {shippingFee === 0 ? 'FREE' : `₹${shippingFee.toLocaleString('en-IN')}`}
                   </span>
                 </div>
 
                 {isPromoApplied && (
                   <div className="flex justify-between items-center text-[#5c6149]">
                     <span>Promotional Saving ({BRAND_INFO.promoCode})</span>
-                    <span className="font-semibold">−${discountAmount.toFixed(2)}</span>
+                    <span className="font-semibold">−₹{discountAmount.toLocaleString('en-IN')}</span>
                   </div>
                 )}
               </div>
@@ -465,11 +465,11 @@ export const CartPage: React.FC<CartPageProps> = ({ onNavigate }) => {
                 </div>
                 <div className="text-right">
                   <span className="font-serif text-2xl font-bold text-[#171411] block">
-                    ${total.toFixed(2)}
+                    ₹{total.toLocaleString('en-IN')}
                   </span>
                   {discountAmount > 0 && (
                     <span className="text-[11px] text-[#5c6149] font-medium">
-                      Saved ${(discountAmount + (shippingFee === 0 ? 10 : 0)).toFixed(2)} today
+                      Saved ₹{(discountAmount + (shippingFee === 0 ? BRAND_INFO.shippingFee : 0)).toLocaleString('en-IN')} today
                     </span>
                   )}
                 </div>
@@ -624,7 +624,7 @@ export const CartPage: React.FC<CartPageProps> = ({ onNavigate }) => {
 
                 <div className="flex items-center justify-between pt-2 border-t border-[#f1ede7]">
                   <span className="font-serif text-base font-bold text-[#171411]">
-                    ${addon.product.price.toFixed(2)}
+                    ₹{addon.product.price.toLocaleString('en-IN')}
                   </span>
                   <button
                     onClick={() => addToCart(addon.product)}

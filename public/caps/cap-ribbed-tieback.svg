@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bg4" cx="50%" cy="40%" r="75%">
+      <stop offset="0%" stop-color="#FBFBFB"/>
+      <stop offset="50%" stop-color="#EFEFEF"/>
+      <stop offset="100%" stop-color="#DDDCDA"/>
+    </radialGradient>
+    <linearGradient id="greyRib" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#727578"/>
+      <stop offset="40%" stop-color="#55585B"/>
+      <stop offset="80%" stop-color="#3C3E40"/>
+      <stop offset="100%" stop-color="#28292B"/>
+    </linearGradient>
+    <pattern id="ribPattern" width="8" height="20" patternUnits="userSpaceOnUse">
+      <line x1="2" y1="0" x2="2" y2="20" stroke="#888B8E" stroke-width="1.2" opacity="0.4"/>
+      <line x1="6" y1="0" x2="6" y2="20" stroke="#252627" stroke-width="1.2" opacity="0.4"/>
+    </pattern>
+    <filter id="shadow4" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#28292B" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="800" fill="url(#bg4)"/>
+
+  <!-- Mannequin Stature Silhouette -->
+  <path d="M 220 540 C 220 480, 240 450, 300 450 C 360 450, 380 480, 380 540 L 450 780 L 150 780 Z" fill="#D3D3D3" opacity="0.45"/>
+  <ellipse cx="300" cy="380" rx="95" ry="125" fill="#E0DCD6" opacity="0.75"/>
+
+  <!-- Tie-Back Cap Structure -->
+  <g filter="url(#shadow4)">
+    <!-- Main Cap Shape -->
+    <path d="M 180 340 C 165 210, 230 145, 300 145 C 370 145, 435 210, 420 340 C 415 400, 395 440, 370 460 C 340 480, 260 480, 230 460 C 205 440, 185 400, 180 340 Z" fill="url(#greyRib)"/>
+    <path d="M 180 340 C 165 210, 230 145, 300 145 C 370 145, 435 210, 420 340 C 415 400, 395 440, 370 460 C 340 480, 260 480, 230 460 C 205 440, 185 400, 180 340 Z" fill="url(#ribPattern)"/>
+
+    <!-- Contour Forehead Band -->
+    <path d="M 195 430 C 230 455, 370 455, 405 430 C 408 445, 395 460, 375 468 C 330 478, 270 478, 225 468 C 205 460, 192 445, 195 430 Z" fill="#313335" stroke="#505255" stroke-width="1.2"/>
+
+    <!-- Rear Tie Ribbons flowing back gracefully -->
+    <path d="M 230 470 C 220 510, 180 560, 190 620 C 195 650, 220 630, 210 580 C 205 540, 240 500, 245 475 Z" fill="url(#greyRib)"/>
+    <path d="M 370 470 C 380 510, 420 560, 410 620 C 405 650, 380 630, 390 580 C 395 540, 360 500, 355 475 Z" fill="url(#greyRib)"/>
+  </g>
+
+  <!-- Title Pill Overlay -->
+  <g transform="translate(300, 720)">
+    <rect x="-180" y="-22" width="360" height="44" rx="22" fill="#FFFFFF" opacity="0.9" filter="url(#shadow4)"/>
+    <text x="0" y="4" text-anchor="middle" font-family="serif" font-size="14" font-weight="600" fill="#171411" letter-spacing="1">
+      CONTOUR RIBBED TIE-BACK CAP
+    </text>
+    <text x="0" y="24" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="500" fill="#55585B" letter-spacing="2">
+      SLATE GREY • CUSTOMIZABLE TIES
+    </text>
+  </g>
+</svg>

@@ -251,7 +251,7 @@ export const AccountPage: React.FC<AccountPageProps> = ({ onNavigate }) => {
                           {ord.status}
                         </span>
                         <span className="font-serif font-bold text-sm text-[#171411]">
-                          ${ord.total.toFixed(2)}
+                          ₹{ord.total.toLocaleString('en-IN')}
                         </span>
                       </div>
                     </div>
@@ -280,7 +280,7 @@ export const AccountPage: React.FC<AccountPageProps> = ({ onNavigate }) => {
                           </div>
                           <div className="text-right">
                             <span className="font-semibold text-[#171411]">
-                              {item.price === 0 ? 'FREE' : `$${(item.price * item.qty).toFixed(2)}`}
+                              {item.price === 0 ? 'FREE' : `₹${(item.price * item.qty).toLocaleString('en-IN')}`}
                             </span>
                             <p className="text-[10px] text-[#7e756f]">Qty {item.qty}</p>
                           </div>
@@ -294,7 +294,7 @@ export const AccountPage: React.FC<AccountPageProps> = ({ onNavigate }) => {
                         ({ord.courier || 'DHL Express'})
                       </span>
                       <a
-                        href={`https://wa.me/?text=Hello%20Husna%20Collection%2C%20could%20you%20please%20check%20tracking%20for%20order%20${
+                        href={`https://wa.me/917227972655?text=Hello%20Husna%20Collection%2C%20could%20you%20please%20check%20tracking%20for%20order%20${
                           ord.orderNumber || ord.id
                         }%3F`}
                         target="_blank"
@@ -362,7 +362,7 @@ export const AccountPage: React.FC<AccountPageProps> = ({ onNavigate }) => {
                         </h4>
                         <p className="text-[11px] text-[#7e756f]">{p.fabric}</p>
                         <span className="font-serif font-bold text-sm text-[#171411] block mt-1">
-                          ${p.price.toFixed(2)}
+                          ₹{p.price.toLocaleString('en-IN')}
                         </span>
                       </div>
                     </div>

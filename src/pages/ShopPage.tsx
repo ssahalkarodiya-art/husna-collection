@@ -16,39 +16,42 @@ export const ShopPage: React.FC<ShopPageProps> = ({ initialCategory = 'all', onN
   const [selectedFabrics, setSelectedFabrics] = useState<string[]>([]);
   const [selectedLengths, setSelectedLengths] = useState<string[]>([]);
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
-  const [maxPrice, setMaxPrice] = useState<number>(250);
+  const [maxPrice, setMaxPrice] = useState<number>(15000);
   const [sortBy, setSortBy] = useState<'featured' | 'price-asc' | 'price-desc' | 'rating'>('featured');
   const [page, setPage] = useState<number>(1);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState<boolean>(false);
 
-  // Category counts and definitions
+  // Category counts and definitions: Strictly Abayas, Hijabs, and Caps
   const categoryPills = [
-    { id: 'all', label: 'All', count: 138 },
-    { id: 'abayas', label: 'Abayas', count: 42 },
-    { id: 'hijabs', label: 'Hijabs', count: 38 },
-    { id: 'dresses', label: 'Dresses', count: 24 },
-    { id: 'coord-sets', label: 'Co-ord Sets', count: 19 },
-    { id: 'outerwear', label: 'Outerwear', count: 15 },
-    { id: 'kimonos', label: 'Kimonos', count: 12 },
-    { id: 'new-arrivals', label: '★ New Arrivals', count: 28 },
+    { id: 'all', label: 'All', count: PRODUCTS.length },
+    { id: 'abayas', label: 'Abayas', count: PRODUCTS.filter((p) => p.category === 'abayas').length },
+    { id: 'hijabs', label: 'Hijabs', count: PRODUCTS.filter((p) => p.category === 'hijabs').length },
+    { id: 'caps', label: 'Caps', count: PRODUCTS.filter((p) => p.category === 'caps').length },
+    { id: 'new-arrivals', label: '★ New Arrivals', count: PRODUCTS.filter((p) => p.isNewArrival).length },
   ];
 
   const fabricOptions = [
-    'Premium Chiffon',
-    'Organic Washed Linen',
-    'Silk Crepe de Chine',
     'Korean Nidha Crepe',
-    'Japanese Matte Satin',
+    'Organic Washed Linen',
+    'Pure Medina Silk',
+    'Premium Chiffon',
+    'Pure Mulberry Silk & Bamboo',
+    'Austrian Micro-Modal',
+    'Cashmere & Extra-Fine Merino Wool',
+    'Plush Stretch Silk Velvet',
   ];
 
-  const lengthOptions = ['50', '52', '54', '56', '58', '60'];
+  const lengthOptions = ['52', '54', '56', '58', '60'];
 
   const colorPalette = [
-    { name: 'Deep Onyx', hex: '#171411' },
-    { name: 'Warm Taupe', hex: '#A29488' },
+    { name: 'Deep Black', hex: '#171411' },
+    { name: 'Warm Beige', hex: '#E5D7C5' },
+    { name: 'Mocha Brown', hex: '#5C4033' },
+    { name: 'Slate Grey', hex: '#707070' },
+    { name: 'Maroon Wine', hex: '#671926' },
+    { name: 'Pastel Blush', hex: '#E8C5C8' },
     { name: 'Olive Sage', hex: '#757C60' },
     { name: 'Desert Sand', hex: '#E5D7C5' },
-    { name: 'Terracotta', hex: '#B88673' },
   ];
 
   const toggleFabric = (fabric: string) => {
@@ -68,7 +71,7 @@ export const ShopPage: React.FC<ShopPageProps> = ({ initialCategory = 'all', onN
     setSelectedFabrics([]);
     setSelectedLengths([]);
     setSelectedColor(null);
-    setMaxPrice(250);
+    setMaxPrice(15000);
     setSortBy('featured');
   };
 
@@ -113,11 +116,11 @@ export const ShopPage: React.FC<ShopPageProps> = ({ initialCategory = 'all', onN
 
   const handleWhatsAppProductOrder = (product: Product) => {
     const text = encodeURIComponent(
-      `Hello Husna Collection Concierge, I would like to order the ${product.name} ($${product.price.toFixed(
-        2
+      `Hello Husna Collection Concierge, I would like to order the ${product.name} (₹${product.price.toLocaleString(
+        'en-IN'
       )}). Please confirm size and fabric details.`
     );
-    window.open(`https://wa.me/?text=${text}`, '_blank');
+    window.open(`https://wa.me/917227972655?text=${text}`, '_blank');
   };
 
   return (
@@ -215,11 +218,9 @@ export const ShopPage: React.FC<ShopPageProps> = ({ initialCategory = 'all', onN
               </span>
               <div className="flex flex-col gap-2 text-xs text-[#4d4540]">
                 {[
-                  { id: 'abayas', label: 'Abayas', count: 42 },
-                  { id: 'hijabs', label: 'Hijabs & Shawls', count: 38 },
-                  { id: 'dresses', label: 'Maxi Dresses', count: 24 },
-                  { id: 'coord-sets', label: 'Co-ords & Sets', count: 19 },
-                  { id: 'outerwear', label: 'Outerwear & Capes', count: 15 },
+                  { id: 'abayas', label: 'Abayas', count: PRODUCTS.filter((p) => p.category === 'abayas').length },
+                  { id: 'hijabs', label: 'Hijabs', count: PRODUCTS.filter((p) => p.category === 'hijabs').length },
+                  { id: 'caps', label: 'Caps', count: PRODUCTS.filter((p) => p.category === 'caps').length },
                 ].map((item) => (
                   <label key={item.id} className="flex items-center justify-between cursor-pointer hover:text-[#171411]">
                     <div className="flex items-center gap-2">
@@ -320,19 +321,20 @@ export const ShopPage: React.FC<ShopPageProps> = ({ initialCategory = 'all', onN
                 <span className="font-semibold text-[#171411] uppercase tracking-wider">
                   Price Ceiling
                 </span>
-                <span className="font-bold text-[#5c6149]">${maxPrice}</span>
+                <span className="font-bold text-[#5c6149]">₹{maxPrice.toLocaleString('en-IN')}</span>
               </div>
               <input
                 type="range"
-                min={20}
-                max={250}
+                min={500}
+                max={15000}
+                step={250}
                 value={maxPrice}
                 onChange={(e) => setMaxPrice(Number(e.target.value))}
                 className="w-full accent-[#5c6149] cursor-pointer"
               />
               <div className="flex justify-between text-[11px] text-[#7e756f]">
-                <span>$20</span>
-                <span>$250</span>
+                <span>₹500</span>
+                <span>₹15,000+</span>
               </div>
             </div>
 
@@ -431,7 +433,7 @@ export const ShopPage: React.FC<ShopPageProps> = ({ initialCategory = 'all', onN
 
                         <div className="flex items-center justify-between pt-1">
                           <span className="font-serif text-base font-bold text-[#171411]">
-                            ${product.price.toFixed(2)}
+                            ₹{product.price.toLocaleString('en-IN')}
                           </span>
 
                           {/* Color Swatches */}
@@ -529,17 +531,17 @@ export const ShopPage: React.FC<ShopPageProps> = ({ initialCategory = 'all', onN
               Need Custom Sizing or WhatsApp Styling Assistance?
             </h2>
             <p className="text-xs sm:text-sm text-[#4d4540] leading-relaxed max-w-lg">
-              Whether you require custom sleeve adjustments, length tailoring, or bridal abaya consultations, speak directly with our certified stylist team based in Dubai.
+              Whether you require custom sleeve adjustments, length tailoring, or bridal abaya consultations, speak directly with our certified stylist team at Husna Collection.
             </p>
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
-                href="https://wa.me/?text=Hello%20Husna%20Collection%2C%20I%20would%20like%20custom%20styling%20assistance."
+                href="https://wa.me/917227972655?text=Hello%20Husna%20Collection%2C%20I%20would%20like%20custom%20styling%20assistance."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#5c6149] hover:bg-[#171411] text-white px-6 py-2.5 rounded-full text-xs font-semibold transition-all shadow-xs"
+                className="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#20ba5a] text-[#072412] px-6 py-2.5 rounded-full text-xs font-bold transition-all shadow-xs"
               >
                 <span className="material-symbols-outlined text-sm">chat</span>
-                <span>Chat on WhatsApp</span>
+                <span>Chat on WhatsApp (+91 7227972655)</span>
               </a>
               <span className="text-xs text-[#7e756f] flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-[#5c6149]"></span>

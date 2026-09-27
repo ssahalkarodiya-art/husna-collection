@@ -97,12 +97,12 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ onSuccessReturn })
   };
 
   const getWhatsAppConfirmationLink = () => {
-    const message = `Hello Husna Collection Atelier,\n\nI have just placed Order #${orderNumber} for $${total.toFixed(
-      2
+    const message = `Hello Husna Collection Atelier,\n\nI have just placed Order #${orderNumber} for ₹${total.toLocaleString(
+      'en-IN'
     )}.\n\nCustomer: ${formData.firstName} ${formData.lastName}\nPhone: ${formData.phone}\nDelivery Address: ${
       formData.address
     }, ${formData.city} (${formData.country})\n\nCustom tailoring notes: ${formData.notes || 'None'}\n\nPlease confirm dispatch. Thank you!`;
-    return `https://wa.me/?text=${encodeURIComponent(message)}`;
+    return `https://wa.me/917227972655?text=${encodeURIComponent(message)}`;
   };
 
   return (
@@ -362,7 +362,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ onSuccessReturn })
                           <p className="font-serif font-medium text-[#171411] line-clamp-1">{item.name}</p>
                           <p className="text-[10px] text-[#7e756f]">{item.color} • L:{item.size}</p>
                           <p className="text-[11px] font-semibold text-[#171411] mt-0.5">
-                            Qty: {item.quantity} × ${item.price.toFixed(2)}
+                            Qty: {item.quantity} × ₹{item.price.toLocaleString('en-IN')}
                           </p>
                         </div>
                       </div>
@@ -372,18 +372,18 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ onSuccessReturn })
                   <div className="pt-3 border-t border-[#e6e2dc] flex flex-col gap-1.5 text-xs text-[#7e756f]">
                     <div className="flex justify-between">
                       <span>Subtotal</span>
-                      <span className="font-semibold text-[#171411]">${subtotal.toFixed(2)}</span>
+                      <span className="font-semibold text-[#171411]">₹{subtotal.toLocaleString('en-IN')}</span>
                     </div>
                     {isPromoApplied && (
                       <div className="flex justify-between text-[#5c6149]">
                         <span>Promo Code ({BRAND_INFO.promoCode})</span>
-                        <span className="font-semibold">−${discountAmount.toFixed(2)}</span>
+                        <span className="font-semibold">−₹{discountAmount.toLocaleString('en-IN')}</span>
                       </div>
                     )}
                     <div className="flex justify-between">
                       <span>Shipping (Express Global)</span>
                       <span className="font-semibold text-[#171411]">
-                        {shippingFee === 0 ? 'FREE' : `$${shippingFee.toFixed(2)}`}
+                        {shippingFee === 0 ? 'FREE' : `₹${shippingFee.toLocaleString('en-IN')}`}
                       </span>
                     </div>
                     {includeGiftBox && (
@@ -394,7 +394,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ onSuccessReturn })
                     )}
                     <div className="flex justify-between text-sm font-semibold text-[#171411] pt-2 border-t border-[#e6e2dc]">
                       <span>Total Due</span>
-                      <span className="font-serif text-lg font-bold">${total.toFixed(2)}</span>
+                      <span className="font-serif text-lg font-bold">₹{total.toLocaleString('en-IN')}</span>
                     </div>
                   </div>
                 </div>
@@ -420,7 +420,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ onSuccessReturn })
                 Your Order is Confirmed
               </h2>
               <p className="text-xs text-[#7e756f] mb-4">
-                Order <strong className="text-[#171411] font-mono text-sm">{orderNumber}</strong> has been received by our atelier in Dubai. A confirmation dispatch notice has been sent to <strong>{formData.email}</strong>.
+                Order <strong className="text-[#171411] font-mono text-sm">{orderNumber}</strong> has been received by Husna Collection. A confirmation dispatch notice has been sent to <strong>{formData.email}</strong>.
               </p>
 
               <div className="w-full bg-white p-4 rounded-xl border border-[#e6e2dc] mb-6 text-left text-xs">
@@ -434,7 +434,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ onSuccessReturn })
                 </div>
                 <div className="flex justify-between">
                   <span className="text-[#7e756f]">Total Paid</span>
-                  <span className="font-serif font-bold text-sm text-[#171411]">${total.toFixed(2)}</span>
+                  <span className="font-serif font-bold text-sm text-[#171411]">₹{total.toLocaleString('en-IN')}</span>
                 </div>
               </div>
 

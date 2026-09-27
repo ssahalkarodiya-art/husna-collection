@@ -10,39 +10,36 @@ interface HomePageProps {
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   const { addToCart, toggleWishlist, isInWishlist, showToast } = useCart();
   const [activeTestimonialIdx, setActiveTestimonialIdx] = useState(0);
+  const [copiedAddress, setCopiedAddress] = useState(false);
 
   const newArrivals = PRODUCTS.slice(0, 6);
+
+  const handleCopyAddress = () => {
+    const fullAddr = `Husna Collection\nShop G-14, G-15, Jasat Plaza, Opp. I.T.I.\nStation Road, Ankleshwar – 393001\nGujarat, India`;
+    navigator.clipboard.writeText(fullAddr);
+    setCopiedAddress(true);
+    showToast('Address Copied', 'Store address copied to clipboard.');
+    setTimeout(() => setCopiedAddress(false), 3000);
+  };
 
   const categories = [
     {
       id: 'abayas',
       name: 'Abayas',
-      subtitle: 'Timeless Elegance',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAYc20MEAPwPh6m77NxKXSvHLCQL509WF0Ze-DBGNlau_Nkxq2TjKMOwZpoh4CPopxgakz2TsLUHAPteZMIOd5Y2-1kkNLcfdlb-2MVFdomwUSAsCuC2Irek8AX5bIWj3WIBSZeNaUjnOSFZmU9F-wUOJVf4IUxQsXwUJMTDzEm_E-e7pUhbijJsNTZVGJ44oKxy5o7VMn4bQfr5WbhtsjD6ZXQDEtxzfL1tee0zRREtPXAXsDzttw2',
+      subtitle: 'Timeless Elegance & Haute Drapes',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD21CgfOWX_ZE8kTJa0S6Jf76Wv3M-HCIzvIbYgUVTOkjr8wCIetR_1jE0iJ9p1ZbhK9VSxD9VTq7I52iy6OBYJCPOnOlnixW1_kLbHmQvWWxJY3GwQveoP3qwvFvq2GWFRvobwp3A3ARoYAbMzBpFPgDxXD9_peV9EPZ1S9DC0HTQqjSPxlPLpfcdfe1d2Y6-ZkvNJh7bUJMahMYth89ukYCr3U1DXO2JoM8dv1QUQYB9uNyKh5Xtv',
     },
     {
       id: 'hijabs',
       name: 'Hijabs',
-      subtitle: 'Everyday Essentials',
+      subtitle: 'Mulberry Silk & Chiffon Drapes',
       image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBOZufcsIvUXwuoHZ_jEds0oCGiETCPsUEzRn8qr0StjHvK0jLhoBP7_d7yPJzaUhiIUQ-GhJfLisKk0OokAD5r7tDrulaWkAS93cZ1QwSOvR7qHfjE5MDDjdw1e_JasG0dNHBaKKQrQA-1glXJqpoSsLstK0EnglH0M6qW2zzSuZiSYnaYpmh52M5noryF_MwYzORR5jCm79qfcXb6DoJndVuVeTLOeLc_KHzMp71RwPU8tQ1mvU9N',
     },
     {
-      id: 'dresses',
-      name: 'Dresses',
-      subtitle: 'Effortless Style',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCX4ABZAby1JeoC7YGFQIT06qiJ-U9f_SW2t69NfHr7Xs_cZweaq3xrMU15JhQHdyUh0K5EDZL5nEVrRKCqkYdfolUOF7hzBbr0giKDNJ9uqju8pwjlaMK2n5EAtRLzY5XzMG8g3mg0yJe-pAqlzqf41YTPiMx-WeY0SeiHPDZPzi6iRsl500ibXgxttHDp196O60pTyXm1QFbOVumhMM6yCcNr_016uRsanTRN6TvIWQYtXplztTSz',
-    },
-    {
-      id: 'coord-sets',
-      name: 'Co-ord Sets',
-      subtitle: 'Modest & Modern',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDYsoODrLeJ6uMnVLkoRZUU3nk9rFQ_v9Nl-gnwFdzuqwBtdUtq7yRKXkudnZBAgxlVoNc-jyfskOGgT3i7l401_tE5_VBVhMJrDifzaXFyteUq24aXp81Nyf9qp3aJvmGvtGmkJSONCKJi1EAPAObCoT1IoGVHjyJIKH2R58NyEDbkhIrv7Qk9al2Pu4K3m6KUnNIWNuQgVeoqvdNORaEUh5gRuiyBYsgr09VWTcoQTgfgoTTWlmH-',
-    },
-    {
-      id: 'outerwear',
-      name: 'Outerwear',
-      subtitle: 'Layer with Grace',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBFZvzv7LdPFK2kW9-_7R7xc_WeQlCcsQf4Gu7Du-ZyoWhZ8hmM_D_zpkxTL_2g0MylOidbou3fNwYV6w8qAOLKX0ATwEKkOlqksTU59e_GQgLVNCjZU0aZWoZndm4WQDzgHCZQ_j1NZVDC5Ms0zkguEiaf08U9fY6sCbSR4vxN7Q66sw_ooux_6BvzGxX4MeXzDSbgktJuPmNKJ6717vUfdaOK5XleHvea8wkwkSeYTwhjt2u0udWH',
+      id: 'caps',
+      name: 'Caps',
+      subtitle: 'Modest Bonnets, Berets & Under-Caps',
+      image: '/caps/cap-silk-bonnet.svg',
     },
   ];
 
@@ -149,7 +146,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                       Aura Belted Medina Silk Kaftan
                     </span>
                   </div>
-                  <span className="text-xs sm:text-sm font-bold text-[#171411]">$94.00</span>
+                  <span className="text-xs sm:text-sm font-bold text-[#171411]">₹7,499</span>
                 </div>
               </div>
             </div>
@@ -223,7 +220,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             </button>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
             {categories.map((cat) => (
               <div
                 key={cat.id}
@@ -337,7 +334,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
                     <div className="flex items-center justify-between pt-3 mt-1">
                       <span className="font-serif text-sm font-bold text-[#171411]">
-                        ${product.price.toFixed(2)}
+                        ₹{product.price.toLocaleString('en-IN')}
                       </span>
                       <button
                         onClick={(e) => {
@@ -588,7 +585,173 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* SECTION 6: WHATSAPP STYLING CONCIERGE BANNER */}
+      {/* SECTION 6: CONTACT US & ATELIER FLAGSHIP */}
+      <section id="contact-us-section" className="w-full bg-[#f6f2ec] py-16 sm:py-20 border-t border-[#e6e2dc]">
+        <div className="max-w-[1380px] mx-auto px-4 sm:px-8 lg:px-16">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-[11px] font-bold text-[#5c6149] uppercase tracking-widest">
+              VISIT &bull; CONNECT &bull; CONSULT
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-[#171411] tracking-tight mt-1">
+              Contact Us
+            </h2>
+            <p className="text-xs sm:text-sm text-[#4d4540] mt-2 leading-relaxed">
+              We warmly welcome you to connect with Husna Collection. Whether you want to visit our boutique in Ankleshwar, inquire about custom tailoring, or order on WhatsApp, our team is at your service.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+            
+            {/* Card 1: Flagship Store */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#e6e2dc] shadow-sm flex flex-col justify-between hover:border-[#cfc4bd] transition-all">
+              <div className="flex flex-col gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-[#dee3c4] text-[#191d0a] flex items-center justify-center">
+                  <span className="material-symbols-outlined text-2xl">storefront</span>
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold text-[#5c6149] tracking-wider uppercase block mb-1">
+                    Flagship Store
+                  </span>
+                  <h3 className="font-serif text-xl font-semibold text-[#171411]">
+                    Husna Collection
+                  </h3>
+                </div>
+
+                <div className="text-xs text-[#4d4540] leading-relaxed flex flex-col gap-1">
+                  <span className="font-medium text-[#171411]">Shop G-14, G-15, Jasat Plaza</span>
+                  <span>Opp. I.T.I., Station Road</span>
+                  <span>Ankleshwar – 393001</span>
+                  <span>Gujarat, India</span>
+                </div>
+
+                <div className="pt-2 text-[11px] text-[#7e756f] flex items-center gap-1.5 border-t border-[#f1ede7]">
+                  <span className="material-symbols-outlined text-sm text-[#5c6149]">schedule</span>
+                  <span>Mon – Sun: 10:00 AM – 9:00 PM IST</span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2 mt-6 pt-2">
+                <button
+                  onClick={handleCopyAddress}
+                  className="bg-[#f7f3ed] hover:bg-[#ece6dc] text-[#171411] py-2.5 px-3 rounded-full text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors cursor-pointer border border-[#cfc4bd]"
+                >
+                  <span className="material-symbols-outlined text-sm">
+                    {copiedAddress ? 'check' : 'content_copy'}
+                  </span>
+                  <span>{copiedAddress ? 'Copied' : 'Copy'}</span>
+                </button>
+
+                <a
+                  href="https://maps.google.com/?q=Jasat+Plaza+Station+Road+Ankleshwar+Gujarat+393001"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#171411] hover:bg-[#2c2825] text-white py-2.5 px-3 rounded-full text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors text-center"
+                >
+                  <span className="material-symbols-outlined text-sm">directions</span>
+                  <span>Directions</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Card 2: WhatsApp Concierge (Highlighted) */}
+            <div className="bg-[#25d366]/10 rounded-3xl p-6 sm:p-8 border-2 border-[#25d366]/40 shadow-sm flex flex-col justify-between relative overflow-hidden">
+              <div className="absolute top-4 right-4 bg-[#25d366] text-[#072412] text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                Instant Chat
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-[#25d366] text-white flex items-center justify-center shadow-xs">
+                  <span className="material-symbols-outlined text-2xl">chat</span>
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold text-[#0f5c2a] tracking-wider uppercase block mb-1">
+                    Phone & WhatsApp
+                  </span>
+                  <h3 className="font-serif text-xl font-semibold text-[#171411]">
+                    +91 7227972655
+                  </h3>
+                </div>
+
+                <p className="text-xs text-[#35302c] leading-relaxed">
+                  Connect instantly with our modest fashion specialists for fabric videos, personalized abaya length recommendations, custom cuts, or direct WhatsApp ordering.
+                </p>
+
+                <div className="pt-2 text-[11px] text-[#0f5c2a] font-medium flex items-center gap-1.5 border-t border-[#25d366]/20">
+                  <span className="w-2 h-2 rounded-full bg-[#25d366] animate-pulse"></span>
+                  <span>Available for Chat & Calls</span>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-2 mt-6 pt-2">
+                <a
+                  href="https://wa.me/917227972655?text=Hello%20Husna%20Collection%2C%20I%20would%20like%20to%20inquire%20about%20your%20products."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-[#25d366] hover:bg-[#20ba5a] text-[#072412] py-3 px-4 rounded-full text-xs font-bold flex items-center justify-center gap-2 transition-all shadow-sm hover:shadow"
+                >
+                  <span className="material-symbols-outlined text-base">chat</span>
+                  <span>Chat on WhatsApp (+91 7227972655)</span>
+                </a>
+
+                <a
+                  href="tel:+917227972655"
+                  className="w-full bg-white hover:bg-[#f1ede7] text-[#171411] py-2 px-3 rounded-full text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors border border-[#cfc4bd] text-center"
+                >
+                  <span className="material-symbols-outlined text-sm text-[#5c6149]">call</span>
+                  <span>Call +91 7227972655</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Card 3: Email & Inquiries */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#e6e2dc] shadow-sm flex flex-col justify-between hover:border-[#cfc4bd] transition-all">
+              <div className="flex flex-col gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-[#f1ede7] text-[#171411] flex items-center justify-center">
+                  <span className="material-symbols-outlined text-2xl">mail</span>
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold text-[#5c6149] tracking-wider uppercase block mb-1">
+                    Email Correspondence
+                  </span>
+                  <h3 className="font-serif text-lg font-semibold text-[#171411] break-all">
+                    husnacollection55@gmail.com
+                  </h3>
+                </div>
+
+                <p className="text-xs text-[#4d4540] leading-relaxed">
+                  Send us your bridal couture requests, bulk or wholesale orders, parcel tracking queries, or general questions anytime.
+                </p>
+
+                <div className="pt-2 text-[11px] text-[#7e756f] flex items-center gap-1.5 border-t border-[#f1ede7]">
+                  <span className="material-symbols-outlined text-sm text-[#5c6149]">done_all</span>
+                  <span>Typical response within 2–4 hours</span>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-2 mt-6 pt-2">
+                <a
+                  href="mailto:husnacollection55@gmail.com"
+                  className="w-full bg-[#171411] hover:bg-[#2c2825] text-white py-3 px-4 rounded-full text-xs font-semibold flex items-center justify-center gap-2 transition-colors text-center shadow-xs"
+                >
+                  <span className="material-symbols-outlined text-sm">mail</span>
+                  <span>Send Email</span>
+                </a>
+
+                <button
+                  onClick={() => onNavigate('contact-us')}
+                  className="w-full bg-[#f7f3ed] hover:bg-[#ece6dc] text-[#171411] py-2 px-3 rounded-full text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors cursor-pointer border border-[#cfc4bd]"
+                >
+                  <span>Open Full Contact Page</span>
+                  <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 7: WHATSAPP STYLING CONCIERGE BANNER */}
       <section className="w-full bg-[#dee3c4] text-[#191d0a] py-8">
         <div className="max-w-[1380px] mx-auto px-4 sm:px-8 lg:px-16 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3.5">
@@ -600,19 +763,19 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 Need Personal Styling or Sizing Advice?
               </span>
               <span className="text-xs text-[#60654d]">
-                Chat directly with our Dubai & London atelier consultants on WhatsApp.
+                Chat directly with our Husna Collection consultants on WhatsApp (+91 7227972655).
               </span>
             </div>
           </div>
 
           <a
-            href="https://wa.me/"
+            href="https://wa.me/917227972655?text=Hello%20Husna%20Collection%20Concierge%2C%20I%20would%20like%20styling%20advice."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#171411] hover:bg-[#2c2825] text-white px-6 py-2.5 rounded-full text-xs font-semibold transition-all shadow-xs shrink-0"
           >
-            <span>Message Concierge</span>
-            <span className="material-symbols-outlined text-xs">open_in_new</span>
+            <span className="material-symbols-outlined text-base text-[#25d366]">chat</span>
+            <span>WhatsApp (+91 7227972655)</span>
           </a>
         </div>
       </section>

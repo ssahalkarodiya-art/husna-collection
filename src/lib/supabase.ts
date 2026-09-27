@@ -1,8 +1,11 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
-// Safe environment variable retrieval
-const ENV_URL = (import.meta as any).env?.VITE_SUPABASE_URL || '';
-const ENV_KEY = (import.meta as any).env?.VITE_SUPABASE_ANON_KEY || '';
+// Safe environment variable retrieval with project defaults
+const DEFAULT_URL = 'https://aqjqwbzfcnhnzqtjyiju.supabase.co';
+const DEFAULT_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFxanF3YnpmY25obnpxdGp5aWp1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA0MTIzODksImV4cCI6MjEwNTk4ODM4OX0.oJ9D5rCp0FuufmyyOfag01yN1wpHtYL-wdaHuB_q2G8';
+
+const ENV_URL = (import.meta as any).env?.VITE_SUPABASE_URL || DEFAULT_URL;
+const ENV_KEY = (import.meta as any).env?.VITE_SUPABASE_ANON_KEY || DEFAULT_KEY;
 
 // Check if credentials are placeholders or empty
 const isPlaceholder = (val: string) => {
@@ -21,8 +24,8 @@ export const getSupabaseConfig = () => {
     // ignore
   }
 
-  const url = storedUrl || (!isPlaceholder(ENV_URL) ? ENV_URL : '');
-  const key = storedKey || (!isPlaceholder(ENV_KEY) ? ENV_KEY : '');
+  const url = storedUrl || (!isPlaceholder(ENV_URL) ? ENV_URL : DEFAULT_URL);
+  const key = storedKey || (!isPlaceholder(ENV_KEY) ? ENV_KEY : DEFAULT_KEY);
   const isCustom = Boolean(storedUrl && storedKey);
   const isConfigured = Boolean(url && key && !isPlaceholder(url) && !isPlaceholder(key));
 

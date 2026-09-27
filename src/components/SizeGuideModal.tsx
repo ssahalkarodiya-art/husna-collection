@@ -123,7 +123,7 @@ export const SizeGuideModal: React.FC = () => {
           <div className="p-3 bg-white rounded-xl border border-[#e6e2dc] flex items-center justify-between text-xs">
             <span className="text-[#7e756f]">Need custom sleeve length or bridal fit?</span>
             <a
-              href="https://wa.me/?text=Hello%20Husna%20Collection%20Tailor%2C%20I%20would%20like%20a%20custom%20abaya%20sizing%20consultation."
+              href="https://wa.me/917227972655?text=Hello%20Husna%20Collection%20Tailor%2C%20I%20would%20like%20a%20custom%20abaya%20sizing%20consultation."
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#5c6149] font-bold underline flex items-center gap-1"
